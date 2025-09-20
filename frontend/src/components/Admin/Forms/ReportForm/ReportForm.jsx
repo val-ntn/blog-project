@@ -10,6 +10,7 @@ import ImageToolbar from "./ImageToolbar";
 import RichTextEditor from "./RichTextEditor";
 import ImageSelectorThumbnail from "../../ImageSelectorThumbnail";
 import ReportPreview from "../../../Reports/ReportPreview";
+import PropTypes from "prop-types";
 
 export default function ReportForm({ onCreateSuccess, initialData }) {
   const [events, setEvents] = useState([]);
@@ -388,3 +389,34 @@ export default function ReportForm({ onCreateSuccess, initialData }) {
     </>
   );
 }
+
+ReportForm.propTypes = {
+  onCreateSuccess: PropTypes.func, // optional callback
+  initialData: PropTypes.shape({
+    _id: PropTypes.string,
+    event: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        _id: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    ]),
+    title: PropTypes.string,
+    content: PropTypes.string,
+    author: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+      }),
+    ]),
+    excerpt: PropTypes.string,
+    teaser: PropTypes.string,
+    thumbnail: PropTypes.string,
+    carousel: PropTypes.shape({
+      _id: PropTypes.string,
+      title: PropTypes.string,
+      type: PropTypes.string,
+    }),
+  }),
+};

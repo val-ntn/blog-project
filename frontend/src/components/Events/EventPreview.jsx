@@ -1,5 +1,6 @@
 // src/components/Events/EventPreview.jsx
 import { useState } from "react";
+import PropTypes from "prop-types";
 import EventItem from "./EventItem";
 
 export default function EventPreview({ event }) {
@@ -51,3 +52,29 @@ export default function EventPreview({ event }) {
     </div>
   );
 }
+
+EventPreview.propTypes = {
+  event: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    startDate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.instanceOf(Date),
+    ]).isRequired,
+    endDate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.instanceOf(Date),
+    ]),
+    location: PropTypes.string,
+    contact: PropTypes.string,
+    schedule: PropTypes.string,
+    costs: PropTypes.string,
+    source: PropTypes.string,
+    iconURL: PropTypes.string,
+    imageURL: PropTypes.string,
+    description: PropTypes.string,
+    relatedPostId: PropTypes.string,
+    deleted: PropTypes.bool,
+  }).isRequired,
+};

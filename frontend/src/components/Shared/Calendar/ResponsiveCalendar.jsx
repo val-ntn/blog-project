@@ -1,7 +1,8 @@
-
 // frontend/src/components/Shared/Calendar/ResponsiveCalendar.jsx
+
 import { useEffect, useRef } from "react";
 import SmallCalendar from "./SmallCalendar";
+import PropTypes from "prop-types";
 
 export default function ResponsiveCalendar(props) {
   const calendarRef = useRef(null);
@@ -14,14 +15,18 @@ export default function ResponsiveCalendar(props) {
 
       // --- Resize day tiles ---
       const tileSize = containerWidth / 7;
-      calendarRef.current.querySelectorAll(".react-calendar__tile").forEach((tile) => {
-        tile.style.height = `${tileSize}px`;
-        tile.style.lineHeight = `${tileSize}px`;
+      calendarRef.current
+        .querySelectorAll(".react-calendar__tile")
+        .forEach((tile) => {
+          tile.style.height = `${tileSize}px`;
+          tile.style.lineHeight = `${tileSize}px`;
 
-        if (containerWidth > 360) tile.style.fontSize = 'var(--font-size-md)'; // 16px
-        else if (containerWidth > 300) tile.style.fontSize = 'var(--font-size-xs)'; // 12px
-        else tile.style.fontSize = '0.625rem'; // 10px
-      });
+          if (containerWidth > 360)
+            tile.style.fontSize = "var(--font-size-md)"; // 16px
+          else if (containerWidth > 300)
+            tile.style.fontSize = "var(--font-size-xs)"; // 12px
+          else tile.style.fontSize = "0.625rem"; // 10px
+        });
 
       // --- Adjust weekday font size ---
       const weekdayDiv = calendarRef.current.querySelector(".weekday");
@@ -40,8 +45,10 @@ export default function ResponsiveCalendar(props) {
       }
 
       // --- Adjust navigation font size ---
-      const navElements = calendarRef.current.querySelectorAll(".nav-controls, .nav-controls span, .nav-controls button");
-      navElements.forEach(el => {
+      const navElements = calendarRef.current.querySelectorAll(
+        ".nav-controls, .nav-controls span, .nav-controls button"
+      );
+      navElements.forEach((el) => {
         if (containerWidth > 360) el.style.fontSize = "0.75rem";
         else if (containerWidth > 300) el.style.fontSize = "0.625rem";
         else el.style.fontSize = "0.5rem";
@@ -68,3 +75,21 @@ export default function ResponsiveCalendar(props) {
     </div>
   );
 }
+
+ResponsiveCalendar.propTypes = {
+  selectedDate: PropTypes.instanceOf(Date), // currently selected date
+  onChange: PropTypes.func, // callback when date changes
+  minDate: PropTypes.instanceOf(Date), // optional min date
+  maxDate: PropTypes.instanceOf(Date), // optional max date
+  tileContent: PropTypes.func, // optional function for tile content
+  showWeekNumbers: PropTypes.bool, // whether to show week numbers
+};
+
+ResponsiveCalendar.defaultProps = {
+  selectedDate: new Date(),
+  onChange: null,
+  minDate: null,
+  maxDate: null,
+  tileContent: null,
+  showWeekNumbers: false,
+};

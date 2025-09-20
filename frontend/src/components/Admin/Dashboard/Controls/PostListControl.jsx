@@ -3,6 +3,7 @@ import { useState } from "react";
 import PostList from "../../../Posts/PostList";
 import { API_BASE_URL } from "../../../../utils/api";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function PostListControl({
@@ -71,3 +72,10 @@ export default function PostListControl({
     </div>
   );
 }
+
+PostListControl.propTypes = {
+  refreshFlag: PropTypes.any, // used to trigger re-fetching the list
+  onRefresh: PropTypes.func, // optional callback after a delete
+  onRecycleRefresh: PropTypes.func, // optional callback for recycle bin updates
+  onEdit: PropTypes.func, // optional callback when clicking Edit
+};

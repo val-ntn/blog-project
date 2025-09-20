@@ -1,6 +1,8 @@
 // src/components/Admin/Dashboard/Controls/PictureRecycleControl.jsx
 import PictureRecycleList from "../../../Images-Carousels/PictureRecycleList";
 import { API_BASE_URL } from "../../../../utils/api";
+import PropTypes from "prop-types";
+
 import axios from "axios";
 
 export default function PictureRecycleControl({ refreshFlag, onRestore }) {
@@ -58,3 +60,8 @@ export default function PictureRecycleControl({ refreshFlag, onRestore }) {
     </div>
   );
 }
+
+PictureRecycleControl.propTypes = {
+  refreshFlag: PropTypes.any, // triggers re-fetch; could be number/string/boolean
+  onRestore: PropTypes.func, // callback after a restore or hard delete
+};

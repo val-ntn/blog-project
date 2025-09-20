@@ -4,6 +4,7 @@ import parse from "html-react-parser";
 import CarouselItem from "../Images-Carousels/CarouselItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { API_BASE_URL } from "../../utils/api";
 
 const sanitizeConfig = {
@@ -88,6 +89,14 @@ export default function SafeHTMLRenderer({ content }) {
         }
       }
     },
+  };
+
+  SafeHTMLRenderer.propTypes = {
+    content: PropTypes.string.isRequired, // must be a string
+  };
+
+  SafeHTMLRenderer.defaultProps = {
+    content: "", // fallback if nothing is passed
   };
 
   return <div className="safe-html">{parse(sanitized, options)}</div>;

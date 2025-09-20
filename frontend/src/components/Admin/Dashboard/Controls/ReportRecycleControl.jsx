@@ -3,6 +3,7 @@ import { useState } from "react";
 import ReportRecycleList from "../../../Reports/ReportRecycleList";
 import { API_BASE_URL } from "../../../../utils/api";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function ReportRecycleControl({ refreshFlag, onRestore }) {
@@ -86,3 +87,8 @@ export default function ReportRecycleControl({ refreshFlag, onRestore }) {
     </div>
   );
 }
+
+ReportRecycleControl.propTypes = {
+  refreshFlag: PropTypes.any, // triggers list refresh; could be number/string/boolean
+  onRestore: PropTypes.func, // optional callback after a restore or hard delete
+};

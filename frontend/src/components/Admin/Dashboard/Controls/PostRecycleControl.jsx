@@ -3,6 +3,7 @@ import { useState } from "react";
 import PostRecycleList from "../../../Posts/PostRecycleList";
 import { API_BASE_URL } from "../../../../utils/api";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function PostRecycleControl({ refreshFlag, onRestore }) {
@@ -76,3 +77,8 @@ export default function PostRecycleControl({ refreshFlag, onRestore }) {
     </div>
   );
 }
+
+PostRecycleControl.propTypes = {
+  refreshFlag: PropTypes.any, // used to trigger list refresh
+  onRestore: PropTypes.func, // optional callback after restoring/deleting a post
+};

@@ -2,6 +2,7 @@
 
 import { API_BASE_URL } from "../../utils/api";
 import Picture from "./Picture";
+import PropTypes from "prop-types";
 
 export default function PicturesList({
   images,
@@ -56,3 +57,29 @@ export default function PicturesList({
     </>
   );
 }
+
+PicturesList.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      filename: PropTypes.string.isRequired,
+      originalName: PropTypes.string,
+      mimetype: PropTypes.string,
+      size: PropTypes.number,
+    })
+  ).isRequired,
+  uploading: PropTypes.bool, // Whether upload is in progress
+  onUpload: PropTypes.func, // Callback for file input change
+  onDelete: PropTypes.func, // Callback to delete an image
+  onSelect: PropTypes.func, // Callback when image is selected
+  viewMode: PropTypes.oneOf(["list", "grid"]), // Determines rendering layout
+  showCopyButton: PropTypes.bool, // Show "Copy URL" button on thumbnails
+};
+
+PicturesList.defaultProps = {
+  uploading: false,
+  onUpload: null,
+  onDelete: null,
+  onSelect: null,
+  viewMode: "grid",
+  showCopyButton: false,
+};

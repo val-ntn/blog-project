@@ -1,6 +1,7 @@
 // src/components/Reports/ReportPreview.jsx
 import { useState } from "react";
 import ReportItem from "./ReportItem";
+import PropTypes from "prop-types";
 
 export default function ReportPreview({ report }) {
   const [size, setSize] = useState("large");
@@ -51,3 +52,24 @@ export default function ReportPreview({ report }) {
     </div>
   );
 }
+
+ReportPreview.propTypes = {
+  report: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    event: PropTypes.string.isRequired, // ObjectId of the event
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired, // ObjectId of the user
+    carousel: PropTypes.string, // ObjectId of carousel (optional)
+    excerpt: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    thumbnail: PropTypes.string,
+    teaser: PropTypes.string,
+    externalLinks: PropTypes.arrayOf(PropTypes.string),
+    deleted: PropTypes.bool,
+    deletedByEvent: PropTypes.bool,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
+  }).isRequired,
+};

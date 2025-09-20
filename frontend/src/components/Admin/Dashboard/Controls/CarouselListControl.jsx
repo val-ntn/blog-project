@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CarouselList from "../../../Images-Carousels/CarouselList";
 import { API_BASE_URL } from "../../../../utils/api";
+import PropTypes from "prop-types";
 
 export default function CarouselListControl({
   refreshFlag,
@@ -80,3 +81,9 @@ export default function CarouselListControl({
     </div>
   );
 }
+
+CarouselListControl.propTypes = {
+  refreshFlag: PropTypes.any,
+  onRecycleRefresh: PropTypes.func,
+  onEdit: PropTypes.func,
+};

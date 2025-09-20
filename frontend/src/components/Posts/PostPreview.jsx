@@ -1,5 +1,6 @@
 // src/components/Posts/PostPreview.jsx
 import { useState } from "react";
+import PropTypes from "prop-types";
 import PostItem from "./PostItem";
 
 export default function PostPreview({ post }) {
@@ -51,3 +52,24 @@ export default function PostPreview({ post }) {
     </div>
   );
 }
+
+PostPreview.propTypes = {
+  post: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired, // ID of the author
+    carousel: PropTypes.string, // ID of related carousel
+    category: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    views: PropTypes.number,
+    thumbnail: PropTypes.string,
+    teaser: PropTypes.string,
+    deleted: PropTypes.bool,
+    externalLinks: PropTypes.arrayOf(PropTypes.string),
+    excerpt: PropTypes.string,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
+  }).isRequired,
+};

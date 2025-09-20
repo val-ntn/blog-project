@@ -11,10 +11,10 @@ export default function CarouselDisplayControl() {
   const [showManager, setShowManager] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [editingCarousel, setEditingCarousel] = useState(null);
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
 
   const fetchCarousels = async () => {
-    setLoading(true);
+    //setLoading(true);
     try {
       const res = await axios.get(`${API_BASE_URL}/carousels`, {
         withCredentials: true,
@@ -23,7 +23,7 @@ export default function CarouselDisplayControl() {
     } catch (err) {
       console.error("Failed to fetch carousels:", err);
     } finally {
-      setLoading(false);
+      //setLoading(false);
     }
   };
 

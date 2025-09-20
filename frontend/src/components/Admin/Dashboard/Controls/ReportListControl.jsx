@@ -4,6 +4,7 @@ import ReportList from "../../../Reports/ReportList";
 import { API_BASE_URL } from "../../../../utils/api";
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function ReportListControl({
@@ -76,3 +77,10 @@ export default function ReportListControl({
     </div>
   );
 }
+
+ReportListControl.propTypes = {
+  refreshFlag: PropTypes.any, // used to trigger list refresh
+  onRefresh: PropTypes.func, // optional callback after a report is deleted
+  onRecycleRefresh: PropTypes.func, // optional callback for recycle bin refresh
+  onEdit: PropTypes.func, // optional callback when clicking edit
+};

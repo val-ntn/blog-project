@@ -10,6 +10,7 @@ import CarouselSelector from "../../CarouselSelector";
 import ImageSelectorThumbnail from "../../ImageSelectorThumbnail";
 import PostPreview from "../../../Posts/PostPreview";
 import "./PostForm.css";
+import PropTypes from "prop-types";
 
 export default function PostForm({ onCreateSuccess, initialData }) {
   const [users, setUsers] = useState([]);
@@ -428,3 +429,30 @@ export default function PostForm({ onCreateSuccess, initialData }) {
     </>
   );
 }
+
+PostForm.propTypes = {
+  onCreateSuccess: PropTypes.func, // optional callback after creating/updating
+  initialData: PropTypes.shape({
+    _id: PropTypes.string,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    author: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+      }),
+    ]),
+    category: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    externalLinks: PropTypes.arrayOf(PropTypes.string),
+    excerpt: PropTypes.string,
+    teaser: PropTypes.string,
+    thumbnail: PropTypes.string,
+    carousel: PropTypes.shape({
+      _id: PropTypes.string,
+      title: PropTypes.string,
+      type: PropTypes.string,
+    }),
+  }),
+};

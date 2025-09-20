@@ -1,5 +1,6 @@
 // frontend/src/components/Images-Carousels/PictureListObj.jsx
 
+import PropTypes from "prop-types";
 import { API_BASE_URL } from "../../utils/api";
 import Picture from "./PictureObj";
 
@@ -56,3 +57,26 @@ export default function PicturesList({
     </>
   );
 }
+
+PicturesList.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      filename: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  uploading: PropTypes.bool, // Whether an upload is in progress
+  onUpload: PropTypes.func, // Optional callback when uploading a file
+  onDelete: PropTypes.func, // Optional callback to delete an image
+  onSelect: PropTypes.func, // Optional callback when selecting an image
+  viewMode: PropTypes.oneOf(["list", "grid"]), // List or grid display
+  showCopyButton: PropTypes.bool, // Show "Copy URL" button for grid mode
+};
+
+PicturesList.defaultProps = {
+  uploading: false,
+  onUpload: null,
+  onDelete: null,
+  onSelect: null,
+  viewMode: "grid",
+  showCopyButton: false,
+};

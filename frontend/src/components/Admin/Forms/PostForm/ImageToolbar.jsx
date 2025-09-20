@@ -1,4 +1,6 @@
 // frontend/src/components/Admin/PostForm/ImageToolbar.jsx
+
+import PropTypes from "prop-types";
 import { useRef } from "react";
 import "./PostForm.css";
 
@@ -124,3 +126,11 @@ export default function ImageToolbar({
     </div>
   );
 }
+
+ImageToolbar.propTypes = {
+  selectedImgRef: PropTypes.shape({ current: PropTypes.any }).isRequired, // Ref to the currently selected image
+  toolbarRef: PropTypes.shape({ current: PropTypes.any }).isRequired, // Ref to the toolbar container
+  selectedSides: PropTypes.instanceOf(Set).isRequired, // Set of selected sides ("top", "right", "bottom", "left", "all")
+  setSelectedSides: PropTypes.func.isRequired, // Function to update the selected sides
+  onAction: PropTypes.func.isRequired, // Callback for toolbar actions (increase, decrease, align, reset)
+};

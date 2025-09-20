@@ -3,6 +3,7 @@ import { useState } from "react";
 import EventRecycleList from "../../../Events/EventRecycleList";
 import { API_BASE_URL } from "../../../../utils/api";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function EventRecycleControl({ refreshFlag, onRestore }) {
@@ -79,3 +80,8 @@ export default function EventRecycleControl({ refreshFlag, onRestore }) {
     </div>
   );
 }
+
+EventRecycleControl.propTypes = {
+  refreshFlag: PropTypes.any, // triggers re-fetch, could be number/string/boolean
+  onRestore: PropTypes.func, // callback after a restore or hard delete
+};

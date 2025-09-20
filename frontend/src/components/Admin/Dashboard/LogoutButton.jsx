@@ -1,9 +1,10 @@
 // src/components/Admin/Dashboard/LogoutButton.jsx
-import React from "react";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import { API_BASE_URL } from "../../../utils/api";
+import PropTypes from "prop-types";
 
 export default function LogoutButton({ className }) {
   const navigate = useNavigate();
@@ -29,3 +30,7 @@ export default function LogoutButton({ className }) {
     </button>
   );
 }
+
+LogoutButton.propTypes = {
+  className: PropTypes.string,
+};

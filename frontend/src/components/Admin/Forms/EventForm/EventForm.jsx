@@ -5,6 +5,7 @@ import axios from "axios";
 import { API_BASE_URL } from "../../../../utils/api";
 import "./EventForm.css";
 import EventPreview from "../../../Events/EventPreview";
+import PropTypes from "prop-types";
 
 export default function EventForm({ initialData = null, onCreateSuccess }) {
   const [title, setTitle] = useState("");
@@ -238,3 +239,21 @@ export default function EventForm({ initialData = null, onCreateSuccess }) {
     </>
   );
 }
+
+EventForm.propTypes = {
+  initialData: PropTypes.shape({
+    _id: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
+    location: PropTypes.string,
+    contact: PropTypes.string,
+    schedule: PropTypes.string,
+    costs: PropTypes.string,
+    source: PropTypes.string,
+    iconURL: PropTypes.string,
+    imageURL: PropTypes.string,
+  }),
+  onCreateSuccess: PropTypes.func,
+};

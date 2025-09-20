@@ -9,7 +9,7 @@ import { API_BASE_URL } from "../../../../utils/api";
 export default function PicturesListControl() {
   const [images, setImages] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [viewMode, setViewMode] = useState("grid"); // NEW
+  //const [viewMode, setViewMode] = useState("grid");
   const [displayMode, setDisplayMode] = useState("list");
 
   const fetchImages = () => {

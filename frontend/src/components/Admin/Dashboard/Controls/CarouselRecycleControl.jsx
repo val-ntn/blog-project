@@ -1,6 +1,7 @@
 // src/components/Admin/Dashboard/Controls/CarouselRecycleControl.jsx
 import CarouselRecycleList from "../../../Images-Carousels/CarouselRecycleList";
 import { API_BASE_URL } from "../../../../utils/api";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function CarouselRecycleControl({ refreshFlag, onRestore }) {
@@ -40,3 +41,8 @@ export default function CarouselRecycleControl({ refreshFlag, onRestore }) {
     </div>
   );
 }
+
+CarouselRecycleControl.propTypes = {
+  refreshFlag: PropTypes.any, // triggers list refresh; could be number/string/boolean
+  onRestore: PropTypes.func, // optional callback after a restore or hard delete
+};

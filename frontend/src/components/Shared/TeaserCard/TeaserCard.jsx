@@ -74,4 +74,5 @@ TeaserCard.propTypes = {
   }).isRequired,
   size: PropTypes.oneOf(["small", "large"]), // optional
   type: PropTypes.string,
+  linkToDetail: PropTypes.bool,
 };

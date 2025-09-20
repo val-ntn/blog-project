@@ -1,5 +1,6 @@
 // frontend/src/components/Images-Carousels/PictureObj.jsx
 
+import PropTypes from "prop-types";
 import { API_BASE_URL } from "../../utils/api";
 export default function Picture({
   image,
@@ -95,3 +96,20 @@ export default function Picture({
     </div>
   );
 }
+
+Picture.propTypes = {
+  image: PropTypes.shape({
+    filename: PropTypes.string.isRequired, // The image file name
+  }).isRequired,
+  onSelect: PropTypes.func, // Optional callback when image is clicked
+  onDelete: PropTypes.func, // Optional callback for delete button
+  mode: PropTypes.oneOf(["list", "thumbnail", "preview", "grid"]), // Mode for display
+  showCopyButton: PropTypes.bool, // Optional, whether to show "Copy URL" button
+};
+
+Picture.defaultProps = {
+  onSelect: null,
+  onDelete: null,
+  mode: "grid",
+  showCopyButton: false,
+};

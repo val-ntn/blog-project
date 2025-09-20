@@ -7,6 +7,7 @@ import { API_BASE_URL } from "../../../../utils/api";
 import CarouselLivePreview from "../../../Images-Carousels/CarouselLivePreview";
 import Button from "../../../UI/Button";
 import "./CarouselForm.css";
+import PropTypes from "prop-types";
 
 export default function CarouselForm({
   initialData = null,
@@ -193,3 +194,17 @@ export default function CarouselForm({
     </div>
   );
 }
+
+CarouselForm.propTypes = {
+  initialData: PropTypes.shape({
+    _id: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    images: PropTypes.arrayOf(PropTypes.string),
+    externalLink: PropTypes.string,
+    isActive: PropTypes.bool,
+    type: PropTypes.oneOf(["basic", "thumbs", "multi-row"]),
+  }),
+  onCreateSuccess: PropTypes.func,
+  onClose: PropTypes.func,
+};

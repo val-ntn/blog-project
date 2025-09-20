@@ -1,4 +1,6 @@
 // frontend/src/components/Admin/ReportForm/RichTextEditor.jsx
+
+import PropTypes from "prop-types";
 import { Editor } from "@tinymce/tinymce-react";
 import "tinymce/tinymce";
 import "tinymce/themes/silver";
@@ -76,3 +78,10 @@ export default function RichTextEditor({
     />
   );
 }
+
+RichTextEditor.propTypes = {
+  value: PropTypes.string.isRequired, // The editor content
+  onChange: PropTypes.func.isRequired, // Called when content changes
+  editorRef: PropTypes.shape({ current: PropTypes.any }).isRequired, // Ref to the TinyMCE editor instance
+  onNodeChange: PropTypes.func, // Optional callback for NodeChange events
+};

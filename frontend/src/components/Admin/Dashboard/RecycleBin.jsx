@@ -6,8 +6,9 @@ import EventRecycleControl from "./Controls/EventRecycleControl";
 import ReportRecycleControl from "./Controls/ReportRecycleControl";
 import PostRecycleControl from "./Controls/PostRecycleControl";
 import PictureRecycleControl from "./Controls/PictureRecycleControl";
-import ReportRecycleList from "../../Reports/ReportRecycleList";
-import PictureRecycleList from "../../Images-Carousels/PictureRecycleList";
+import PropTypes from "prop-types";
+//import ReportRecycleList from "../../Reports/ReportRecycleList";
+//import PictureRecycleList from "../../Images-Carousels/PictureRecycleList";
 
 export default function RecycleBin({
   onPostRestore,
@@ -106,3 +107,16 @@ export default function RecycleBin({
     </div>
   );
 }
+
+RecycleBin.propTypes = {
+  onPostRestore: PropTypes.func,
+  onEventRestore: PropTypes.func,
+  onCarouselRestore: PropTypes.func,
+  onReportRestore: PropTypes.func,
+  onImageRestore: PropTypes.func,
+  postRecycleRefreshFlag: PropTypes.any, // usually a number or boolean
+  eventRecycleRefreshFlag: PropTypes.any,
+  carouselRecycleRefreshFlag: PropTypes.any,
+  reportRecycleRefreshFlag: PropTypes.any,
+  imageRecycleRefreshFlag: PropTypes.any,
+};

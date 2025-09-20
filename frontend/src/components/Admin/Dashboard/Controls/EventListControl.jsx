@@ -4,6 +4,7 @@ import EventList from "../../../Events/EventList";
 import { API_BASE_URL } from "../../../../utils/api";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 export default function EventListControl({
@@ -88,3 +89,10 @@ export default function EventListControl({
     </div>
   );
 }
+
+EventListControl.propTypes = {
+  refreshFlag: PropTypes.any, // Could be number, boolean, string, triggers re-fetch
+  onRefresh: PropTypes.func, // Optional callback after changes
+  onRecycleRefresh: PropTypes.func, // Optional callback for recycle actions
+  onEdit: PropTypes.func, // Optional callback when editing an event
+};

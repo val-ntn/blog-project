@@ -3,6 +3,7 @@ import { useState } from "react";
 import { API_BASE_URL } from "../../utils/api";
 import Picture from "./PictureObj";
 import "./PictureDisplay.css";
+import PropTypes from "prop-types";
 
 export default function PictureDisplay({
   images,
@@ -161,3 +162,33 @@ export default function PictureDisplay({
     </div>
   );
 }
+
+PictureDisplay.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      filename: PropTypes.string.isRequired,
+      originalName: PropTypes.string,
+      mimetype: PropTypes.string,
+      size: PropTypes.number,
+    })
+  ).isRequired,
+  onDelete: PropTypes.func, // Optional delete callback
+  onUpload: PropTypes.func, // Optional upload callback
+  uploading: PropTypes.bool, // Uploading state
+  displayMode: PropTypes.oneOf(["list", "grid"]), // List or grid display
+  toggleDisplayMode: PropTypes.func, // Callback to switch display mode
+  showCopyButton: PropTypes.bool, // Show "Copy URL" buttons
+  onSelect: PropTypes.func, // Callback when selecting an image
+  mode: PropTypes.oneOf(["admin", "picker"]), // Component mode
+};
+
+PictureDisplay.defaultProps = {
+  onDelete: null,
+  onUpload: null,
+  uploading: false,
+  displayMode: "list",
+  toggleDisplayMode: () => {},
+  showCopyButton: false,
+  onSelect: () => {},
+  mode: "admin",
+};
