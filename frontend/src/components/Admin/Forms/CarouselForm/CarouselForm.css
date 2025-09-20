@@ -1,0 +1,117 @@
+/* CarouselForm.css */
+
+.carousel-form__container {
+  margin-top: var(--spacing-xl);
+}
+.carousel-form {
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  max-width: 1024px;
+  margin: 0 auto;
+  background: var(--color-dashboard-second);
+  padding: var(--spacing-md) 0;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-family-dashboard);
+}
+.carousel-form__title {
+  font-size: var(--font-size-xl);
+  font-family: var(--font-family-event-title);
+  color: var(--color-white);
+}
+
+.carousel-form__label {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.25rem;
+}
+
+.carousel-form__input,
+.carousel-form__textarea,
+.carousel-form__select {
+  width: 100%;
+  padding: 0.5rem var(--spacing-sm);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-family-dashboard);
+  margin: 0;
+}
+
+.carousel-form__input:focus,
+.carousel-form__textarea:focus,
+.carousel-form__select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.carousel-form__button {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  transition: background 0.2s;
+}
+
+.carousel-form__button:hover {
+  background: var(--color-primary-darker);
+}
+
+.carousel-form__preview {
+  border: 1px solid var(--color-divider);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+.carousel-form__select {
+  appearance: none;
+  background-color: var(--color-dashboard-second);
+}
+.carousel-form__images {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-sm);
+}
+
+.carousel-form__image-wrapper {
+  position: relative;
+}
+.carousel-form__image-wrapper button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.carousel-form__image {
+  width: 100px;
+  border-radius: var(--border-radius-sm);
+}
+
+.carousel-form__row {
+  display: flex;
+
+  gap: var(--spacing-xl);
+  flex-wrap: wrap; /* wrap on smaller screens */
+}
+
+.carousel-form__field-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space between label and input */
+  flex: 1;
+  min-width: 200px;
+  gap: 1rem; /* space between label and field */
+}
+
+.carousel-form__label-inline {
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap; /* keep label text on one line */
+}
+
+.carousel-form__input,
+.carousel-form__select {
+  width: auto; /* instead of 100%, take up remaining space */
+  flex: 1; /* fill the flex container space */
+}

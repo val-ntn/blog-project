@@ -1,0 +1,8 @@
+/* TeaserCard-specific title font */
+@import url("https://fonts.googleapis.com/css?family=Lato|Playfair+Display+SC");
+
+/* Dashboard-specific text font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lato:wght@400;700&family=Playfair+Display+SC&family=Montserrat:wght@400;700&display=swap");
+
+/* Import IBM Plex Sans only for this calendar */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");

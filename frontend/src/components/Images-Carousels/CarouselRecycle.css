@@ -1,0 +1,47 @@
+/* frontend/src/components/Images-Carousels/CarouselRecycle.css */
+
+.carousel-recycle__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.carousel-recycle__row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: var(--color-text);
+  color: var(--color-white);
+  font-family: var(--font-family-dashboard);
+  font-size: var(--font-size-sm);
+}
+
+.carousel-recycle__symbol {
+  width: 32px;
+  text-align: center;
+}
+
+.carousel-recycle__filename {
+  flex: 2;
+  font-weight: bold;
+}
+
+.carousel-recycle__type {
+  flex: 1;
+  text-transform: capitalize;
+}
+
+.carousel-recycle__size {
+  flex: 1;
+}
+
+.carousel-recycle__actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}

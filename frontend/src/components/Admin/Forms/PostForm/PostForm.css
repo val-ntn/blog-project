@@ -1,0 +1,84 @@
+/* PostForm.module.css */
+
+/* Overall form wrapper */
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1024px;
+  margin: 0 auto; /* centers the form */
+  padding: 1rem;
+}
+
+/* Main content row: editor + sidebar */
+.post-form__main {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-form__main-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+/* Rich text editor area */
+.post-form__main > .post-form__label:first-child {
+  flex: 2; /* editor takes 2/3 of space */
+}
+
+/* Sidebar area */
+.post-form__sidebar {
+  flex: 1; /* sidebar takes 1/3 of space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Labels and inputs in general */
+.post-form__label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.post-form__input,
+.post-form__select,
+.post-form__textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.post-form__select {
+  background-color: var(--color-text);
+}
+
+/* Media buttons area */
+.post-form__media {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-wrap: wrap; /* allows buttons to wrap if they expand */
+}
+
+/* Thumbnail section */
+.post-form__thumbnail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Submit button */
+.post-form__button--submit {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-start; /* aligns to the left */
+}

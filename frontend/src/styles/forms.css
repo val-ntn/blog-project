@@ -1,0 +1,55 @@
+/* src/styles/formst.css */
+
+/* Global form styling */
+form {
+  font-family: var(--font-family-dashboard);
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+
+  border-radius: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Inputs */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  font-size: 1rem;
+}
+
+/* Buttons */
+form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+form button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Error messages */
+form .form-error {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Labels */
+form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}

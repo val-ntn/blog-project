@@ -1,0 +1,150 @@
+/* src/components/Images-Carousels/CarouselDisplay.css */
+
+/* Layout wrappers */
+.carousel__scroll-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.carousel__display-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel__list {
+  flex: 1 1 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.carousel__preview {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel__preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* List row */
+.carousel__row {
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-dashboard);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.carousel__row--selected {
+  border: 2px solid blue;
+}
+
+/* Elements inside row */
+.carousel__symbol {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.carousel__filename {
+  flex: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carousel__type {
+  flex: 1;
+}
+
+.carousel__size {
+  flex: 1;
+}
+
+.carousel__delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.carousel__select {
+  background: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Wrapper + header */
+.carousel__display-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel__display-header {
+  max-width: 1024px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.carousel__header-spacer {
+  flex: 1;
+}
+
+/* Grid view */
+.carousel__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 960px;
+  overflow-y: auto;
+}
+
+.carousel__row--grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.carousel__row--grid .carousel__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* List-specific buttons */
+.carousel__row--list .carousel__buttons {
+  margin-left: auto;
+}

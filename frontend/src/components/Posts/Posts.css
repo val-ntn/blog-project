@@ -1,0 +1,127 @@
+/* frontend/src/components/Posts/Posts.css */
+
+/* Base wrapper */
+.post-item {
+  /*margin-bottom: var(--spacing-lg);*/
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+/* ---- Size variations ---- */
+
+.post-item--small {
+  background-color: var(--color-background-alt);
+  display: flex;
+  flex-direction: column;
+}
+.post-item--large {
+  /* max-width: var(--max-content-width); */
+  /* margin: 0 auto; */
+  background-color: var(--color-background);
+  padding: var(--spacing-lg) calc(var(--spacing-xl) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl); /* or var(--spacing-xs) for small if you want */
+}
+
+.post-item--medium {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg) calc(var(--spacing-xl) * 2);
+  /*padding: var(--spacing-lg);  */
+  background-color: var(--color-background);
+  box-shadow: 0px -30px 16px -30px rgba(0, 0, 0, 0.05),
+    /* top */ 0px 30px 16px -30px rgba(0, 0, 0, 0.05); /* bottom */
+  border-radius: var(--border-radius-sm);
+  margin: 0 auto;
+}
+
+/* ---- Carousel ---- */
+.post-item__carousel {
+  margin-top: var(--spacing-lg);
+}
+
+/* ---- Read More ---- */
+.post-item__read-more {
+  margin-top: var(--spacing-md);
+}
+
+/* ---- Safe HTML content ---- */
+.safe-html p {
+  margin-bottom: calc(var(--spacing-lg) + var(--spacing-md));
+}
+.safe-html::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ---- Recylce content ---- */
+
+/* Wrapper for the recycle items */
+.post-recycle-item--wrapper {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-background-alt);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Header row: title + actions */
+.post-recycle-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Actions on the right (buttons) */
+.post-recycle-item__actions button {
+  margin-left: var(--spacing-xs);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.post-recycle-item__actions button:hover {
+  background-color: var(--color-teal-50);
+}
+
+/* Expanded content */
+.post-recycle-item__content {
+  margin-top: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  font-size: 0.9rem;
+}
+
+/* Optional: small shadow for expanded content */
+.post-recycle-item__content {
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-background);
+  padding: var(--spacing-sm);
+}
+.post-item img {
+  max-width: 100%; /* scale down if larger than container */
+  height: auto; /* maintain aspect ratio */
+  display: block; /* avoid inline spacing issues */
+  outline: none; /* remove blue border from focus */
+}
+
+.post-item .safe-html p {
+  margin-bottom: calc(var(--spacing-lg) + var(--spacing-md));
+}
+.post-item .safe-html::after {
+  content: "";
+  display: block;
+  clear: both;
+}

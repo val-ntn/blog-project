@@ -1,0 +1,129 @@
+/* src/components/Images-Carousels/PictureDisplay.css */
+
+/* Block */
+
+/* Elements */
+.picture__display-wrapper {
+  max-height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.picture__display-wrapper:hover {
+  max-height: 600px;
+  border: 1px solid #ccc;
+}
+
+.picture__display-header {
+  max-width: 1024px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.picture__display-content {
+  height: 600px;
+  display: flex;
+}
+
+.picture__scroll-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.picture__list {
+  flex: 1 1 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.picture__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-height: 400px; /* optional, for vertical scroll */
+  overflow-y: auto;
+}
+
+.picture__preview {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.picture__preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.picture__row {
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-dashboard);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+.picture__row--grid {
+  border: none;
+}
+.picture__row--selected {
+  border: 2px solid blue;
+}
+
+.picture__symbol {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.picture__filename,
+.picture__type,
+.picture__size {
+  margin-right: 1rem;
+}
+
+.picture__filename {
+  flex: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picture__type {
+  flex: 1;
+}
+
+.picture__size {
+  flex: 1;
+}
+
+.picture__delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.picture__header-spacer {
+  flex: 1;
+}

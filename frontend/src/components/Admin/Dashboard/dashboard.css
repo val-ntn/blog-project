@@ -1,0 +1,225 @@
+/* Dashboard container */
+
+/* dashboard.css */
+.dashboard-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full viewport */
+}
+
+.dashboard-container {
+  display: flex;
+  height: 94vh;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-family-dashboard);
+  width: 250px;
+  background-color: #252526;
+  color: #fff;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+.dashboard-sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.dashboard-sidebar__footer {
+  margin-top: auto; /* ensures footer stays at the bottom */
+}
+
+.dashboard-sidebar__button {
+  width: 100%;
+  font-family: var(--font-family-dashboard);
+  padding: 0.75rem 1.25rem; /* bigger than before */
+  font-size: 1rem; /* increase font size */
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dashboard-sidebar__button:hover {
+  background-color: #313131;
+  border-radius: 0.25rem;
+}
+
+.dashboard-sidebar__button--active {
+  background-color: #313131;
+  border-radius: 0.25rem;
+}
+
+/* Parent flex container for dashboard action buttons */
+.dashboard-action-buttons {
+  display: flex;
+  justify-content: space-between; /* pushes left and right divs to edges */
+  align-items: center;
+  gap: 8px; /* optional spacing between the left and right groups */
+  margin-top: 8px; /* spacing from card content */
+}
+
+.dashboard-action-buttons__left,
+.dashboard-action-buttons__right {
+  display: flex;
+  gap: 8px; /* spacing between buttons inside each group */
+}
+
+.dashboard-action-buttons__edit,
+.dashboard-action-buttons__delete,
+.dashboard-action-buttons__expand,
+.dashboard-action-buttons__reports,
+.dashboard-action-buttons__restore {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.dashboard-action-buttons__edit:hover {
+  background: #f0f0f0;
+}
+
+.dashboard-action-buttons__delete:hover {
+  background: #ffe6e6;
+}
+
+.dashboard-action-buttons__expand:hover {
+  background: #e6f0ff;
+}
+
+.dashboard-action-buttons__reports:hover {
+  background: #e6f0ff;
+}
+
+.picture-recycle__actions {
+  flex-direction: column;
+}
+/* Main dashboard area */
+.dashboard-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #1e1e1e;
+}
+
+.dashboard__section-title {
+  font-family: var(--font-family-event-title);
+  margin: 4rem;
+}
+
+/* Header */
+.dashboard-header {
+  flex-shrink: 0;
+  padding: 1rem;
+  background-color: #313131;
+  color: #fff;
+  border-bottom: 1px solid #569cd6;
+  height: 108px;
+
+  display: flex; /* make header a flex container */
+  justify-content: flex-end; /* push children (h2) to the right */
+  align-items: center; /* vertically center h2 */
+}
+
+.dashboard-header > h2 {
+  font-family: var(--font-family-event-title);
+  margin: 0 4rem 0 0; /* remove default margin to avoid spacing issues */
+}
+
+/* Scrollable content */
+.dashboard-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #1e1e1e;
+}
+
+.dashboard-content--text {
+  color: var(--color-white); /* or var(--color-text-on-dark, #fff) */
+  font-family: var(--font-family-dashboard);
+}
+
+.dashboard-content label {
+  color: white; /* or use your dark-mode variable */
+  font-family: var(--font-family-dashboard);
+  font-weight: 500; /* optional, make them stand out */
+}
+
+.dashboard-sidebar__logout {
+  margin-top: auto; /* pushes this button to the bottom */
+  padding: 0.75rem 1rem;
+  background: none;
+  border: 1px solid #444;
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+  cursor: pointer;
+}
+
+.dashboard-sidebar__logout:hover {
+  background-color: #313131;
+}
+
+.recycle-bin__filter-bar {
+  display: flex;
+
+  gap: 0.5rem; /* spacing between buttons */
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.recycle-bin__filter-bar button {
+  flex: 1 1 auto; /* optional: let buttons stretch evenly */
+  padding: 0.5rem 1rem;
+  font-family: var(--font-family-dashboard);
+  font-size: var(--font-size-sm);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.recycle-bin__filter-bar button:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.recycle-bin__filter-bar button:active {
+  background-color: #e0e0e0;
+}
+
+.recycle-bin__section-title {
+  color: var(--color-white);
+  font-family: var(--font-family-dashboard);
+  margin: 2rem;
+}
+
+/* Overall container */
+.recycle-bin__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem; /* space between filter bar and sections */
+
+  margin: 0 auto; /* center */
+  padding: 1rem;
+}
