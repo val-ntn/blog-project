@@ -6,10 +6,11 @@ import { API_BASE_URL } from "../../../../utils/api";
 import ImageSelector from "../../ImageSelector";
 import CarouselSelector from "../../CarouselSelector";
 import "./ReportForm.css";
-import ImageToolbar from "./ImageToolbar";
-import RichTextEditor from "./RichTextEditor";
+import ImageToolbar from "../../Editors/ImageToolbar";
+//import RichTextEditor from "./RichTextEditor";
 import ImageSelectorThumbnail from "../../ImageSelectorThumbnail";
 import ReportPreview from "../../../Reports/ReportPreview";
+import RichTextEditor from "../../Editors/RichTextEditor";
 import PropTypes from "prop-types";
 
 export default function ReportForm({ onCreateSuccess, initialData }) {

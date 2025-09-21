@@ -47,7 +47,7 @@ const sanitizeConfig = {
   FORBID_ATTR: ["onerror", "onclick", "onload", "onmouseover", "onfocus"],
 };
 
-export default function SafeHTMLRenderer({ content }) {
+export default function SafeHTMLRenderer({ content = "" }) {
   const [carousels, setCarousels] = useState({});
 
   useEffect(() => {
@@ -95,9 +95,9 @@ export default function SafeHTMLRenderer({ content }) {
     content: PropTypes.string.isRequired, // must be a string
   };
 
-  SafeHTMLRenderer.defaultProps = {
+  /*SafeHTMLRenderer.defaultProps = {
     content: "", // fallback if nothing is passed
-  };
+  };*/
 
   return <div className="safe-html">{parse(sanitized, options)}</div>;
 }

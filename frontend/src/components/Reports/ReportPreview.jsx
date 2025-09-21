@@ -55,13 +55,16 @@ export default function ReportPreview({ report }) {
 
 ReportPreview.propTypes = {
   report: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
+    _id: PropTypes.string, // optional for draft
     type: PropTypes.string,
-    event: PropTypes.string.isRequired, // ObjectId of the event
+    event: PropTypes.oneOfType([PropTypes.string, PropTypes.object]), // optional object for preview
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired, // ObjectId of the user
-    carousel: PropTypes.string, // ObjectId of carousel (optional)
+    author: PropTypes.oneOfType([
+      PropTypes.string, // saved post: ID
+      PropTypes.shape({ _id: PropTypes.string, name: PropTypes.string }), // draft
+    ]),
+    carousel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     excerpt: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
     thumbnail: PropTypes.string,

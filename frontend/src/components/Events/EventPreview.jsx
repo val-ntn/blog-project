@@ -55,7 +55,7 @@ export default function EventPreview({ event }) {
 
 EventPreview.propTypes = {
   event: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
+    _id: PropTypes.string, // optional for draft
     type: PropTypes.string,
     title: PropTypes.string.isRequired,
     startDate: PropTypes.oneOfType([

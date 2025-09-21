@@ -5,6 +5,7 @@ import axios from "axios";
 import { API_BASE_URL } from "../../utils/api";
 import Button from "../UI/Button";
 import PictureDisplay from "../Images-Carousels/PictureDisplay";
+import PropTypes from "prop-types";
 
 export default function ImageSelectorForForm({ onSelect }) {
   const [open, setOpen] = useState(false);
@@ -46,3 +47,7 @@ export default function ImageSelectorForForm({ onSelect }) {
     </div>
   );
 }
+
+ImageSelectorForForm.propTypes = {
+  onSelect: PropTypes.func.isRequired,
+};

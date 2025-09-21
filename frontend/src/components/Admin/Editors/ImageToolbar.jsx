@@ -1,8 +1,7 @@
-// frontend/src/components/Admin/PostForm/ImageToolbar.jsx
+// frontend/src/components/Admin/Editors/ImageToolbar.jsx
 
-/*import PropTypes from "prop-types";
-import { useRef } from "react";
-import "./ReportForm.css";
+import PropTypes from "prop-types";
+import "./ImageToolbar.css"; // or rename to ImageToolbar.css if you prefer
 
 export default function ImageToolbar({
   selectedImgRef,
@@ -16,18 +15,11 @@ export default function ImageToolbar({
       const newSet = new Set(prev);
       if (side === "all") {
         newSet.clear();
-        newSet.add("all");
-        newSet.add("top");
-        newSet.add("right");
-        newSet.add("bottom");
-        newSet.add("left");
+        ["all", "top", "right", "bottom", "left"].forEach((s) => newSet.add(s));
       } else {
         newSet.delete("all");
-        if (newSet.has(side)) {
-          newSet.delete(side);
-        } else {
-          newSet.add(side);
-        }
+        if (newSet.has(side)) newSet.delete(side);
+        else newSet.add(side);
         if (["top", "right", "bottom", "left"].every((s) => newSet.has(s))) {
           newSet.add("all");
         }
@@ -47,7 +39,7 @@ export default function ImageToolbar({
   });
 
   return (
-    <div ref={toolbarRef} className="report-form__toolbar">
+    <div ref={toolbarRef} className="image-toolbar">
       <button
         type="button"
         onClick={() => toggleSide("all")}
@@ -88,6 +80,7 @@ export default function ImageToolbar({
       >
         ▌
       </button>
+
       <button
         type="button"
         onClick={() => onAction("increase-margin")}
@@ -128,9 +121,9 @@ export default function ImageToolbar({
 }
 
 ImageToolbar.propTypes = {
-  selectedImgRef: PropTypes.shape({ current: PropTypes.any }).isRequired, // Ref to the currently selected image
-  toolbarRef: PropTypes.shape({ current: PropTypes.any }).isRequired, // Ref to the toolbar container
-  selectedSides: PropTypes.instanceOf(Set).isRequired, // Set of selected sides ("top", "right", "bottom", "left", "all")
-  setSelectedSides: PropTypes.func.isRequired, // Function to update the selected sides
-  onAction: PropTypes.func.isRequired, // Callback for toolbar actions (increase, decrease, align, reset)
-};*/
+  selectedImgRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
+  toolbarRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
+  selectedSides: PropTypes.instanceOf(Set).isRequired,
+  setSelectedSides: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired,
+};

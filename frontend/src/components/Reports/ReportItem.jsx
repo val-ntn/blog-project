@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SafeHTMLRenderer from "../Common/SafeHTMLRenderer";
 import CarouselItem from "../../components/Images-Carousels/CarouselItem";
 import "./Reports.css";
+import PropTypes from "prop-types";
 
 /**
  * ReportItem displays a report in "small", "medium", or "large" size.
@@ -97,3 +98,77 @@ export default function ReportItem({
     </div>
   );
 }
+ReportItem.propTypes = {
+  report: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    event: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    excerpt: PropTypes.string,
+    author: PropTypes.shape({
+      _id: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    carousel: PropTypes.oneOfType([
+      PropTypes.string, // ID
+      PropTypes.object, // full carousel object
+    ]),
+    tags: PropTypes.arrayOf(PropTypes.string),
+    thumbnail: PropTypes.string,
+    teaser: PropTypes.string,
+    externalLinks: PropTypes.arrayOf(PropTypes.string),
+    deleted: PropTypes.bool,
+    deletedByEvent: PropTypes.bool,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
+  }).isRequired,
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  linkToDetail: PropTypes.bool,
+};
+
+/*ReportItem.defaultProps = {
+  size: "medium",
+  linkToDetail: false,
+};*/
+ReportItem.propTypes = {
+  report: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    event: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    excerpt: PropTypes.string,
+    author: PropTypes.shape({
+      _id: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    carousel: PropTypes.oneOfType([
+      PropTypes.string, // ID
+      PropTypes.object, // full carousel object
+    ]),
+    tags: PropTypes.arrayOf(PropTypes.string),
+    thumbnail: PropTypes.string,
+    teaser: PropTypes.string,
+    externalLinks: PropTypes.arrayOf(PropTypes.string),
+    deleted: PropTypes.bool,
+    deletedByEvent: PropTypes.bool,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
+  }).isRequired,
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  linkToDetail: PropTypes.bool,
+};
+
+ReportItem.defaultProps = {
+  size: "medium",
+  linkToDetail: false,
+};

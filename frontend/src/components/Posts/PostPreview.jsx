@@ -55,12 +55,15 @@ export default function PostPreview({ post }) {
 
 PostPreview.propTypes = {
   post: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
+    _id: PropTypes.string, // optional
     type: PropTypes.string,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired, // ID of the author
-    carousel: PropTypes.string, // ID of related carousel
+    author: PropTypes.oneOfType([
+      PropTypes.string, // saved post: ID
+      PropTypes.shape({ _id: PropTypes.string, name: PropTypes.string }), // draft
+    ]),
+    carousel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     category: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
     views: PropTypes.number,
