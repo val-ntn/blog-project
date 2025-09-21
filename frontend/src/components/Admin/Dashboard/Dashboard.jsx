@@ -4,22 +4,23 @@ import { useState } from "react";
 import RecycleBin from "./RecycleBin";
 import PostListControl from "./Controls/PostListControl";
 import EventListControl from "./Controls/EventListControl";
-//import CarouselListControl from "./Controls/CarouselListControl";
+import ReportListControl from "./Controls/ReportListControl";
+
 import DashboardSidebar from "./DashboardSidebar";
+import DashboardHeader from "./DashboardHeader";
+
 import PostForm from "../Forms/PostForm/PostForm";
 import EventForm from "../Forms/EventForm/EventForm";
-//import CarouselForm from "../Forms/CarouselForm/CarouselFormObj";
-//import PicturesListControl from "./Controls/PicturesListControl";
+import ReportForm from "../Forms/ReportForm/ReportForm";
+
 import PictureDisplayControl from "./Controls/PictureDisplayControl";
 import CarouselDisplayControl from "./Controls/CarouselDisplayControl";
-import ReportListControl from "./Controls/ReportListControl";
-import ReportForm from "../Forms/ReportForm/ReportForm";
-import DashboardHeader from "./DashboardHeader";
-//import PropTypes from "prop-types";
+
+import EntitySection from "./EntitySection"; // <-- new
+
 import "./dashboard.css";
 
 export default function Dashboard() {
-  // === SECTION CONTROL ===
   const [selectedSection, setSelectedSection] = useState("posts");
 
   // === POSTS ===
@@ -41,14 +42,9 @@ export default function Dashboard() {
   const [editingReport, setEditingReport] = useState(null);
   const [showReportForm, setShowReportForm] = useState(false);
 
-  // === CAROUSELS ===
-  const [carouselRefreshFlag, setCarouselRefreshFlag] = useState(0);
+  // === CAROUSELS & IMAGES ===
   const [carouselRecycleRefreshFlag, setCarouselRecycleRefreshFlag] =
     useState(false);
-  const [showCarouselForm, setShowCarouselForm] = useState(false);
-  const [editingCarousel, setEditingCarousel] = useState(null);
-
-  // === IMAGES ===
   const [imageRecycleRefreshFlag, setImageRecycleRefreshFlag] = useState(false);
 
   // === REFRESH TRIGGERS ===
@@ -66,7 +62,6 @@ export default function Dashboard() {
 
   const triggerCarouselRecycleRefresh = () =>
     setCarouselRecycleRefreshFlag((prev) => !prev);
-
   const triggerImageRecycleRefresh = () =>
     setImageRecycleRefreshFlag((prev) => !prev);
 
@@ -80,174 +75,63 @@ export default function Dashboard() {
         <div className="dashboard-main">
           <DashboardHeader />
           <div className="dashboard-content">
-            {/* === Posts Section === */}
-
             {selectedSection === "posts" && (
-              <>
-                <h1 className="dashboard__section-title">Posts</h1>
-                {!showPostForm ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setEditingPost(null);
-                        setShowPostForm(true);
-                      }}
-                    >
-                      Create New Post
-                    </button>
-
-                    <PostListControl
-                      refreshFlag={postRefreshFlag}
-                      onRefresh={triggerPostRefresh}
-                      onRecycleRefresh={triggerPostRecycleRefresh}
-                      onEdit={(post) => {
-                        setEditingPost(post);
-                        setShowPostForm(true);
-                      }}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <PostForm
-                      initialData={editingPost}
-                      onCreateSuccess={() => {
-                        setShowPostForm(false);
-                        setEditingPost(null);
-                        triggerPostRefresh();
-                      }}
-                    />
-                    <button
-                      className="button--cancel"
-                      type="button"
-                      onClick={() => {
-                        setShowPostForm(false);
-                        setEditingPost(null);
-                      }}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                )}
-              </>
+              <EntitySection
+                title="Posts"
+                listComponent={PostListControl}
+                formComponent={PostForm}
+                showForm={showPostForm}
+                setShowForm={setShowPostForm}
+                editingItem={editingPost}
+                setEditingItem={setEditingPost}
+                refreshFlag={postRefreshFlag}
+                onRefresh={triggerPostRefresh}
+                onRecycleRefresh={triggerPostRecycleRefresh}
+              />
             )}
-            {/* === Events Section === */}
+
             {selectedSection === "events" && (
-              <>
-                <h1 className="dashboard__section-title">Events</h1>
-                {!showEventForm ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setEditingEvent(null);
-                        setShowEventForm(true);
-                      }}
-                    >
-                      Create New Event
-                    </button>
-
-                    <EventListControl
-                      refreshFlag={eventRefreshFlag}
-                      onRefresh={triggerEventRefresh}
-                      onRecycleRefresh={triggerEventRecycleRefresh}
-                      onEdit={(event) => {
-                        setEditingEvent(event);
-                        setShowEventForm(true);
-                      }}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <EventForm
-                      initialData={editingEvent}
-                      onCreateSuccess={() => {
-                        setShowEventForm(false);
-                        setEditingEvent(null);
-                        triggerEventRefresh();
-                      }}
-                    />
-                    <button
-                      className="button--cancel"
-                      type="button"
-                      onClick={() => {
-                        setShowEventForm(false);
-                        setEditingEvent(null);
-                      }}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                )}
-              </>
+              <EntitySection
+                title="Events"
+                listComponent={EventListControl}
+                formComponent={EventForm}
+                showForm={showEventForm}
+                setShowForm={setShowEventForm}
+                editingItem={editingEvent}
+                setEditingItem={setEditingEvent}
+                refreshFlag={eventRefreshFlag}
+                onRefresh={triggerEventRefresh}
+                onRecycleRefresh={triggerEventRecycleRefresh}
+              />
             )}
-            {/* === Reports Section === */}
+
             {selectedSection === "reports" && (
-              <>
-                <h1 className="dashboard__section-title">Reports</h1>
-                {!showReportForm ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setEditingReport(null);
-                        setShowReportForm(true);
-                      }}
-                    >
-                      Create New Report
-                    </button>
-
-                    <ReportListControl
-                      refreshFlag={reportRefreshFlag}
-                      onRefresh={triggerReportRefresh}
-                      onRecycleRefresh={triggerReportRecycleRefresh}
-                      onEdit={(report) => {
-                        setEditingReport(report);
-                        setShowReportForm(true);
-                      }}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <ReportForm
-                      initialData={editingReport}
-                      onCreateSuccess={() => {
-                        setShowReportForm(false);
-                        setEditingReport(null);
-                        triggerReportRefresh();
-                      }}
-                    />
-                    <button
-                      className="button--cancel"
-                      type="button"
-                      onClick={() => {
-                        setShowReportForm(false);
-                        setEditingReport(null);
-                      }}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                )}
-              </>
+              <EntitySection
+                title="Reports"
+                listComponent={ReportListControl}
+                formComponent={ReportForm}
+                showForm={showReportForm}
+                setShowForm={setShowReportForm}
+                editingItem={editingReport}
+                setEditingItem={setEditingReport}
+                refreshFlag={reportRefreshFlag}
+                onRefresh={triggerReportRefresh}
+                onRecycleRefresh={triggerReportRecycleRefresh}
+              />
             )}
-            {/* === Pictures & Carousels Section === */}
+
             {selectedSection === "pictures" && (
               <>
-                <div>
-                  <h1 className="dashboard__section-title">Pictures</h1>
-                  <PictureDisplayControl />
-
-                  <CarouselDisplayControl />
-                </div>
+                <h1 className="dashboard__section-title">Pictures</h1>
+                <PictureDisplayControl />
+                <CarouselDisplayControl />
               </>
             )}
-            {/* === Recycle Bin Section === */}
+
             {selectedSection === "bin" && (
               <>
                 <h1 className="dashboard__section-title">Recycle Bin</h1>
                 <RecycleBin
-                  //onPostRestore={triggerPostRefresh}
                   onPostRestore={triggerPostRecycleRefresh}
                   onEventRestore={triggerEventRecycleRefresh}
                   onReportRestore={triggerReportRecycleRefresh}
@@ -261,7 +145,7 @@ export default function Dashboard() {
                 />
               </>
             )}
-            {/* === Users Section Placeholder === */}
+
             {selectedSection === "users" && (
               <>
                 <h1 className="dashboard__section-title">Users</h1>
