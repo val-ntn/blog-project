@@ -3,12 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../../../utils/api";
-import ImageSelector from "../../ImageSelector";
-import CarouselSelector from "../../CarouselSelector";
+import ImageSelector from "../../Dashboard/Selectors/ImageSelector";
+import CarouselSelector from "../../Dashboard/Selectors/CarouselSelector";
 import "./ReportForm.css";
 import ImageToolbar from "../../Editors/ImageToolbar";
 //import RichTextEditor from "./RichTextEditor";
-import ImageSelectorThumbnail from "../../ImageSelectorThumbnail";
+import ImageSelectorThumbnail from "../../Dashboard/Selectors/ImageSelectorThumbnail";
 import ReportPreview from "../../../Reports/ReportPreview";
 import RichTextEditor from "../../Editors/RichTextEditor";
 import PropTypes from "prop-types";

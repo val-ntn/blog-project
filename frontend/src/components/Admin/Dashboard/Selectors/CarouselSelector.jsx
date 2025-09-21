@@ -1,10 +1,10 @@
 // src/components/admin/CarouselSelector.jsx
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API_BASE_URL } from "../../utils/api";
+import { API_BASE_URL } from "../../../../utils/api";
 import PropTypes from "prop-types";
-import Button from "../UI/Button";
-import CarouselDisplay from "../Images-Carousels/CarouselDisplay";
+import Button from "../../../UI/Button";
+import CarouselDisplay from "../../../Images-Carousels/CarouselDisplay";
 
 export default function CarouselSelector({ onSelect }) {
   const [open, setOpen] = useState(false);

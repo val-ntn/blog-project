@@ -21,7 +21,7 @@ import Reports from "./pages/user/Reports";
 import ReportDetail from "./pages/user/ReportDetail";
 
 import AdminRoute from "./routes/AdminRoute";
-import AdminLayout from "./components/Admin/AdminLayout";
+import AdminLayout from "./components/Admin/Dashboard/Layout/AdminLayout";
 
 // This component is a child of Router, so hooks like useLocation work here
 function AppContent() {

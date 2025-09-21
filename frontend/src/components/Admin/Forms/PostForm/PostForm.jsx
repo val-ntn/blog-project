@@ -3,11 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../../../utils/api";
-import ImageSelector from "../../ImageSelector";
+import ImageSelector from "../../Dashboard/Selectors/ImageSelector";
 import ImageToolbar from "../../Editors/ImageToolbar";
 //import RichTextEditor from "./RichTextEditor";
-import CarouselSelector from "../../CarouselSelector";
-import ImageSelectorThumbnail from "../../ImageSelectorThumbnail";
+import CarouselSelector from "../../Dashboard/Selectors/CarouselSelector";
+import ImageSelectorThumbnail from "../../Dashboard/Selectors/ImageSelectorThumbnail";
 import PostPreview from "../../../Posts/PostPreview";
 import RichTextEditor from "../../Editors/RichTextEditor";
 import "./PostForm.css";

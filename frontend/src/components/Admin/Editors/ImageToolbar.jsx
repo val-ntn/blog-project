@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./ImageToolbar.css"; // or rename to ImageToolbar.css if you prefer
 
 export default function ImageToolbar({
-  selectedImgRef,
+  //selectedImgRef,
   toolbarRef,
   selectedSides,
   setSelectedSides,

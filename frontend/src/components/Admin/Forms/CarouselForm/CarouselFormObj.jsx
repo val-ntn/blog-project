@@ -1,7 +1,7 @@
 // frontend/src/components/Admin/Forms/CarouselForm/CarouselFormObj.jsx
 
 import { useState, useEffect } from "react";
-import ImageSelector from "../../ImageSelector";
+import ImageSelector from "../../Dashboard/Selectors/ImageSelector";
 import axios from "axios";
 import { API_BASE_URL } from "../../../../utils/api";
 import CarouselLivePreview from "../../../Images-Carousels/CarouselLivePreview";

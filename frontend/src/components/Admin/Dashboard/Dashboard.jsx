@@ -4,18 +4,18 @@ import { useState } from "react";
 import RecycleBin from "./RecycleBin";
 import PostListControl from "./Controls/PostListControl";
 import EventListControl from "./Controls/EventListControl";
-import CarouselListControl from "./Controls/CarouselListControl";
+//import CarouselListControl from "./Controls/CarouselListControl";
 import DashboardSidebar from "./DashboardSidebar";
 import PostForm from "../Forms/PostForm/PostForm";
 import EventForm from "../Forms/EventForm/EventForm";
-import CarouselForm from "../Forms/CarouselForm/CarouselFormObj";
-import PicturesListControl from "./Controls/PicturesListControl";
+//import CarouselForm from "../Forms/CarouselForm/CarouselFormObj";
+//import PicturesListControl from "./Controls/PicturesListControl";
 import PictureDisplayControl from "./Controls/PictureDisplayControl";
 import CarouselDisplayControl from "./Controls/CarouselDisplayControl";
 import ReportListControl from "./Controls/ReportListControl";
 import ReportForm from "../Forms/ReportForm/ReportForm";
 import DashboardHeader from "./DashboardHeader";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import "./dashboard.css";
 
 export default function Dashboard() {
