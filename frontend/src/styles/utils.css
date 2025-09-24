@@ -25,7 +25,7 @@
 /* -------------------- */
 .card__title {
   font-family: var(--font-family-heading);
-  color: var(--color-body);
+  color: var(--color-text);
   line-height: 1.2;
   margin: var(--spacing-md) 0 var(--spacing-md);
   font-weight: var(--font-weight-normal); /* default bold for normal cards */
