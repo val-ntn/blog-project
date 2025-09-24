@@ -30,7 +30,7 @@ export default function ImageSelectorForForm({ onSelect }) {
   return (
     <div>
       <Button type="button" onClick={() => setOpen(!open)} variant="primary">
-        Insert Thumbnail Image
+        {open ? "Cancel" : "Insert Thumbnail Image"}
       </Button>
       {open && (
         <PictureDisplay

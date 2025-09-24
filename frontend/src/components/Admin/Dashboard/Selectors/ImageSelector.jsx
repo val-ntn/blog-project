@@ -30,7 +30,7 @@ export default function ImageSelector({ onSelect }) {
   return (
     <div>
       <Button type="button" onClick={() => setOpen(!open)} variant="primary">
-        Insert Image
+        {open ? "Cancel" : "Insert Image"}
       </Button>
 
       {open && (

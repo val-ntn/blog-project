@@ -28,7 +28,7 @@ export default function CarouselSelector({ onSelect }) {
   return (
     <div>
       <Button type="button" onClick={() => setOpen(!open)} variant="primary">
-        Insert Carousel
+        {open ? "Cancel" : "Insert Carousel"}
       </Button>
 
       {open && (

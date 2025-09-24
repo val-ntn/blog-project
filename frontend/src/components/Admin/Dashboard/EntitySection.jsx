@@ -35,7 +35,7 @@ export default function EntitySection({
         {showForm ? "Close" : `Create New ${singularTitle}`}
       </button>
 
-      {showForm && (
+      {showForm ? (
         <FormComponent
           initialData={editingItem}
           onCreateSuccess={() => {
@@ -44,17 +44,17 @@ export default function EntitySection({
             onRefresh();
           }}
         />
+      ) : (
+        <ListComponent
+          refreshFlag={refreshFlag}
+          onRefresh={onRefresh}
+          onRecycleRefresh={onRecycleRefresh}
+          onEdit={(item) => {
+            setEditingItem(item);
+            setShowForm(true);
+          }}
+        />
       )}
-
-      <ListComponent
-        refreshFlag={refreshFlag}
-        onRefresh={onRefresh}
-        onRecycleRefresh={onRecycleRefresh}
-        onEdit={(item) => {
-          setEditingItem(item);
-          setShowForm(true);
-        }}
-      />
     </div>
   );
 }
