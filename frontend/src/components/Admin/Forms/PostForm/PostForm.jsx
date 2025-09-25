@@ -5,7 +5,6 @@ import axios from "axios";
 import { API_BASE_URL } from "../../../../utils/api";
 import ImageSelector from "../../Dashboard/Selectors/ImageSelector";
 import ImageToolbar from "../../Editors/ImageToolbar";
-//import RichTextEditor from "./RichTextEditor";
 import CarouselSelector from "../../Dashboard/Selectors/CarouselSelector";
 import ImageSelectorThumbnail from "../../Dashboard/Selectors/ImageSelectorThumbnail";
 import PostPreview from "../../../Posts/PostPreview";
@@ -36,7 +35,7 @@ export default function PostForm({ onCreateSuccess, initialData }) {
   // Selected sides state
   const [selectedSides, setSelectedSides] = useState(new Set(["all"]));
 
-  const [showTeaserPreview, setShowTeaserPreview] = useState(false);
+  //const [showTeaserPreview, setShowTeaserPreview] = useState(false);
 
   // Fetch users on mount
   useEffect(() => {
@@ -258,18 +257,6 @@ export default function PostForm({ onCreateSuccess, initialData }) {
 
   return (
     <>
-      {/*testing live Preview*/}
-      <PostPreview
-        post={{
-          title,
-          content,
-          excerpt,
-          carousel: selectedCarousel,
-          author: { name: "You" },
-          thumbnail,
-        }}
-      />
-
       <ImageToolbar
         selectedImgRef={selectedImgRef}
         toolbarRef={toolbarRef}
@@ -280,6 +267,17 @@ export default function PostForm({ onCreateSuccess, initialData }) {
 
       <form onSubmit={handleSubmit} className="post-form">
         <div className="post-form__main">
+          {/*testing live Preview*/}
+          <PostPreview
+            post={{
+              title,
+              content,
+              excerpt,
+              carousel: selectedCarousel,
+              author: { name: "You" },
+              thumbnail,
+            }}
+          />
           <div className="post-form__main-inner">
             <label className="post-form__label">
               <RichTextEditor
@@ -395,50 +393,53 @@ export default function PostForm({ onCreateSuccess, initialData }) {
         </div>
 
         <div className="post-form__thumbnail">
-          <label className="post-form__label">
-            Thumbnail:
-            <ImageSelectorThumbnail onSelect={setThumbnail} />
-            {thumbnail && (
-              <div style={{ marginTop: "0.5rem" }}>
-                <img
-                  src={thumbnail}
-                  alt="Thumbnail preview"
-                  style={{ maxWidth: "150px", borderRadius: "4px" }}
+          <div className="post-form__thumbnail-inner">
+            <div className="post-form__thumbnail-left">
+              <label className="post-form__label">
+                Thumbnail:
+                <ImageSelectorThumbnail onSelect={setThumbnail} />
+                {thumbnail && (
+                  <div style={{ marginTop: "0.5rem" }}>
+                    <img
+                      src={thumbnail}
+                      alt="Thumbnail preview"
+                      style={{ maxWidth: "150px", borderRadius: "4px" }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setThumbnail("")}
+                      style={{ marginLeft: "0.5rem" }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
+              </label>
+              <label className="post-form__label">
+                Teaser (optional):
+                <textarea
+                  value={teaser}
+                  onChange={(e) => setTeaser(e.target.value)}
+                  rows={2}
+                  placeholder="Short promotional teaser text"
+                  className="post-form__textarea"
                 />
-                <button
-                  type="button"
-                  onClick={() => setThumbnail("")}
-                  style={{ marginLeft: "0.5rem" }}
-                >
-                  Remove
-                </button>
-              </div>
-            )}
-          </label>
-
-          {/* Teaser Preview */}
-          <TeaserCardPreview
-            data={{
-              title,
-              teaser,
-              thumbnail,
-              _id: initialData?._id || "draft",
-            }}
-            type="post"
-          />
-
-          <label className="post-form__label">
-            Teaser (optional):
-            <textarea
-              value={teaser}
-              onChange={(e) => setTeaser(e.target.value)}
-              rows={2}
-              placeholder="Short promotional teaser text"
-              className="post-form__textarea"
-            />
-          </label>
+              </label>
+            </div>
+            <div className="post-form__thumbnail-right">
+              {/* Teaser Preview */}
+              <TeaserCardPreview
+                data={{
+                  title,
+                  teaser,
+                  thumbnail,
+                  _id: initialData?._id || "draft",
+                }}
+                type="post"
+              />
+            </div>
+          </div>
         </div>
-
         {/*<div className="post-form__thumbnail">
           <label className="post-form__label">
             Thumbnail:

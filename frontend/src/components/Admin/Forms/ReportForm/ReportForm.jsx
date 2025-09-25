@@ -10,6 +10,7 @@ import ImageToolbar from "../../Editors/ImageToolbar";
 //import RichTextEditor from "./RichTextEditor";
 import ImageSelectorThumbnail from "../../Dashboard/Selectors/ImageSelectorThumbnail";
 import ReportPreview from "../../../Reports/ReportPreview";
+import TeaserCardPreview from "../../../Shared/TeaserCard/TeaserCardPreview";
 import RichTextEditor from "../../Editors/RichTextEditor";
 import PropTypes from "prop-types";
 
@@ -213,18 +214,6 @@ export default function ReportForm({ onCreateSuccess, initialData }) {
 
   return (
     <>
-      <ReportPreview
-        report={{
-          title,
-          content,
-          excerpt,
-          carousel: selectedCarousel,
-          author: { name: "You" },
-          event: events.find((ev) => ev._id === eventId),
-          thumbnail,
-        }}
-      />
-
       <ImageToolbar
         selectedImgRef={selectedImgRef}
         toolbarRef={toolbarRef}
@@ -235,6 +224,17 @@ export default function ReportForm({ onCreateSuccess, initialData }) {
 
       <form onSubmit={handleSubmit} className="report-form">
         <div className="report-form__main">
+          <ReportPreview
+            report={{
+              title,
+              content,
+              excerpt,
+              carousel: selectedCarousel,
+              author: { name: "You" },
+              event: events.find((ev) => ev._id === eventId),
+              thumbnail,
+            }}
+          />
           <div className="report-form__main-inner">
             <label className="report-form__label">
               <RichTextEditor
@@ -338,11 +338,62 @@ export default function ReportForm({ onCreateSuccess, initialData }) {
             </div>
           </div>
         </div>
+
         <div className="report-form__thumbnail">
+          <div className="report-form__thumbnail-inner">
+            <div className="report-form__thumbnail-left">
+              <label className="report-form__label">
+                Thumbnail:
+                <div style={{ marginTop: "0.5rem" }}>
+                  <ImageSelectorThumbnail onSelect={setThumbnail} />
+                  {thumbnail && (
+                    <div style={{ marginTop: "0.5rem" }}>
+                      <img
+                        src={thumbnail}
+                        alt="Thumbnail preview"
+                        style={{ maxWidth: "150px", borderRadius: "4px" }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setThumbnail("")}
+                        style={{ marginLeft: "0.5rem" }}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </label>
+              <label className="report-form__label">
+                Teaser (optional):
+                <textarea
+                  value={teaser}
+                  onChange={(e) => setTeaser(e.target.value)}
+                  rows={2}
+                  placeholder="Short promotional teaser text"
+                  className="report-form__textarea"
+                />
+              </label>
+            </div>
+            <div className="report-form__thumbnail-right">
+              {/* Live TeaserCard Preview */}
+              <TeaserCardPreview
+                data={{
+                  title,
+                  teaser,
+                  thumbnail,
+                  _id: initialData?._id || "draft",
+                }}
+                type="report"
+              />
+            </div>
+          </div>
+        </div>
+        {/*<div className="report-form__thumbnail">
           <label className="report-form__label">
             Thumbnail:
             <div style={{ marginTop: "0.5rem" }}>
-              {/*<ImageSelector onSelect={(url) => setThumbnail(url)} />*/}
+           
               <ImageSelectorThumbnail onSelect={setThumbnail} />
               {thumbnail && (
                 <div style={{ marginTop: "0.5rem" }}>
@@ -372,7 +423,7 @@ export default function ReportForm({ onCreateSuccess, initialData }) {
               className="report-form__textarea"
             />
           </label>
-        </div>
+        </div>*/}
         <button
           type="submit"
           className="report-form__button--submit"

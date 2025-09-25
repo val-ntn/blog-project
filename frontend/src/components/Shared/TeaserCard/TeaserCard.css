@@ -31,7 +31,7 @@
 /* --- Title / Tagline / Date / Text --- */
 .teaser-card__title {
   font-family: var(--font-family-heading);
-  color: var(--color-body);
+  color: var(--color-text);
   line-height: 1.1;
   text-align: center;
   margin-top: var(--spacing-lg);

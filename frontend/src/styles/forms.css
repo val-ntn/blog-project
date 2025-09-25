@@ -4,7 +4,7 @@
 form {
   font-family: var(--font-family-dashboard);
   background-color: var(--color-bg-dark);
-  color: var(--color-white);
+  color: var(--color-text);
 
   border-radius: 0.5rem;
   max-width: 600px;

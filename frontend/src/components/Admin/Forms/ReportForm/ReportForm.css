@@ -21,6 +21,25 @@
   flex-direction: row;
   gap: 1.5rem;
 }
+.report-form__thumbnail-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.report-form__thumbnail-left {
+  flex: 1; /* sidebar takes 1/3 of space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--spacing-lg);
+}
+.report-form__thumbnail-right {
+  flex: 2; /* sidebar takes 1/3 of space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
 /* Rich text editor area */
 .report-form__main > .report-form__label:first-child {
